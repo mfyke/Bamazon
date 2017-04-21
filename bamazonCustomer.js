@@ -56,7 +56,7 @@ function buyProduct () {
 					connection.end();
 				}
 				else {
-					console.log("Order placed! The total cost is " + answers.units*res[0].price);
+					console.log("Order placed! The total cost is $" + answers.units*res[0].price);
 					var quantity = (res[0].stock_quantity-answers.units);
 					var update = 'UPDATE products SET ? WHERE ?'
 					connection.query(update, [{stock_quantity: quantity}, {item_id: answers.productID}], function (err, res) {
